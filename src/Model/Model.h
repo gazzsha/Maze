@@ -11,8 +11,8 @@ class Model {
     Model();
     ~Model() = default;
     Model(const Model&) = delete;
-    Model(Model&&) noexcept = default;
-    Model& operator=(Model&&) noexcept = default;
+    Model(Model&&) noexcept = delete;
+    Model& operator=(Model&&) noexcept = delete;
     bool SaveToFileMaze(const std::string& path) const;
     bool SaveToFileCave(const std::string& path) const;
     bool ReadFromFileMaze(const std::string& path);

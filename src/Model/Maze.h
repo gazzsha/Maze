@@ -23,9 +23,9 @@ enum class Direction {
         Maze(const std::size_t&,const std::size_t&);
         Maze(const std::size_t&,const std::size_t&,const matrix&,const matrix&);
         ~Maze() = default;
-        Maze(const Maze&) = default;
+        Maze(const Maze&) = delete;
         Maze(Maze&&) noexcept = default;
-        Maze& operator=(Maze&&) noexcept = default;
+        Maze& operator=(Maze&&) noexcept = delete;
         void set_parameters(const std::size_t&,const std::size_t&);
         void GenerateMaze();
         // Принимать x = 2, y = 1 ==> В человеческом ввиде 3,2. X -> Y down

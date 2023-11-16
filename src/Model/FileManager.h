@@ -5,7 +5,6 @@
 #include "Maze.h"
 #include <fstream>
 
-
 namespace s21 {
 
 template <typename Type>

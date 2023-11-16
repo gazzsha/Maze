@@ -7,9 +7,9 @@ class Controller {
     public:
     Controller(std::unique_ptr<Model> model_);
     ~Controller() = default;
-    Controller(const Controller&) = default;
-    Controller(Controller&&) noexcept = default;
-    Controller& operator=(Controller&&) noexcept = default;
+    Controller(const Controller&) = delete;
+    Controller(Controller&&) noexcept = delete;
+    Controller& operator=(Controller&&) noexcept = delete;
     bool SaveToFileMaze(const std::string& path) const;
     bool SaveToFileCave(const std::string& path) const;
     bool ReadFromFileMaze(const std::string& path);
@@ -20,3 +20,5 @@ class Controller {
     std::unique_ptr<Model> model; 
 };
 }
+
+#endif // S21_A1_MAZE_CONTROLLER_CONTROLLER_H
