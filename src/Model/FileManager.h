@@ -1,5 +1,5 @@
-#ifndef S21_A1_MAZE_MODEL_READER_H
-#define S21_A1_MAZE_MODEL_READER_H
+#ifndef S21_A1_MAZE_MODEL_FILEMANAGER_H
+#define S21_A1_MAZE_MODEL_FILEMANAGER_H
 
 
 #include "Maze.h"
@@ -76,4 +76,4 @@ class FileManager<int> {
 
 
 
-#endif //S21_A1_MAZE_MODEL_READER_H
+#endif //S21_A1_MAZE_MODEL_FILEMANAGER_H

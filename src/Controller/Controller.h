@@ -1,3 +1,5 @@
+#ifndef S21_A1_MAZE_CONTROLLER_CONTROLLER_H
+#define S21_A1_MAZE_CONTROLLER_CONTROLLER_H
 #include "../Model/Model.h"
 
 namespace s21 {
