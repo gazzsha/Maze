@@ -58,5 +58,4 @@ clean :
 	rm -rf View/MLP/Build_MLP $(TARGET) *.a *.out *.tar Temp
 	# rm -rf Documentation
 	# rm -rf $(SRC_MODEL_PATH)/*.dSYM $(TESTS)/*.dSYM 
-	find . -type f -name '*.dSYM ' -print -delete
-	# rm -rf *.dSYM 
+	find . -type f -name '*.dSYM' -print -delete
