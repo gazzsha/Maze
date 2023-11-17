@@ -14,8 +14,9 @@ class Controller {
     bool SaveToFileCave(const std::string& path) const;
     bool ReadFromFileMaze(const std::string& path);
     bool GenerateMaze(const size_t&,const size_t&);
-    bool SolutionWave(const std::pair<std::size_t,std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
-    std::pair<matrix,matrix> get_data_Maze() const;
+    bool SolvingMaze(const std::pair<std::size_t,std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
+   std::pair<std::pair<matrix,matrix>,std::vector<std::pair<size_t,size_t>>> get_data_maze() const;
+    pair get_paramets() const noexcept;
     private:
     std::unique_ptr<Model> model; 
 };

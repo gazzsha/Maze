@@ -39,7 +39,7 @@ class FileManager<Maze> {
          std::ofstream fout(path);
         if (!fout.is_open()) return false;
         auto [rows,cols] = maze.get_paramets();
-        auto [vertical,horizontal] = maze.get_data();
+        auto [vertical,horizontal] = maze.get_data().first;
         fout << rows << " " << cols << "\n";
         for (std::size_t i = 0; i < rows; ++i) { 
             for (std::size_t j = 0; j < cols; ++j) { 

@@ -11,7 +11,7 @@ namespace s21 {
     }
 
     bool Maze::IsGoodMaze() const { 
-        if (parameters.first == 0 or parameters.second == 0) return false;
+        if (parameters.first == 0 or parameters.second == 0 or parameters.first > 50 or parameters.second > 50) return false;
         for (const auto& vec : value_vertical) {
             if (!std::all_of(vec.begin(),vec.end(),[](const auto& elem) { 
                 return elem == 0 or elem == 1;
@@ -148,6 +148,7 @@ namespace s21 {
 
 
     void Maze::SolutionWave(const std::pair<std::size_t,std::size_t>& from,const std::pair<const std::size_t,const std::size_t>& to) { 
+     path.clear();
      auto [x,y] = from;
       while ((x != to.first) or (y != to.second)) { 
         if (CheckStepByDirection(Direction::kLeft,std::make_pair<int,int>(x-1,y)) && way[y][x - 1] + 1 == way[y][x]) {
@@ -181,8 +182,8 @@ namespace s21 {
          value_vertical.clear();
          value_horizontal.clear();
     }
-      std::pair<matrix,matrix> Maze::get_data() const { 
-        return std::make_pair(value_vertical,value_horizontal);
+    std::pair<std::pair<matrix,matrix>,std::vector<std::pair<size_t,size_t>>> Maze::get_data() const { 
+        return std::make_pair(std::make_pair(value_vertical,value_horizontal),path);
     }
     pair Maze::get_paramets() const { 
         return parameters;
@@ -209,10 +210,25 @@ namespace s21 {
       return out;
     }
 
+     bool Maze::SolvingMaze(const std::pair<const std::size_t,const std::size_t>& to,const std::pair<const std::size_t,const std::size_t>& from) { 
+        if (CheckSizePoint(to,from)) {
+        WaveAlgorithm(to,from);
+        SolutionWave(from,to);
+        } else return false;
+        return true;
+     }
+
+    bool Maze::CheckSizePoint(const pair& to,const pair& from) {
+        return (to.first > parameters.first - 1 or to.second > parameters.second - 1 or 
+        from.first >  parameters.first - 1 or from.second > parameters.second - 1) ? false : true;
+    }
 
 
-    void Maze::GenerateMaze() { 
+    /// @brief Checks input rows and cols and generate new maze
+    /// @return If invalid input data - false, True - New maze is generated
+    bool Maze::GenerateMaze() { 
         clear();
+        if(!IsGoodMaze()) return false;
         std::vector<std::size_t> set_number;
         InitValueMatrix();
         InitSetNumber(set_number);
@@ -222,6 +238,7 @@ namespace s21 {
             ChangeSetNumber(set_number);
         }
         HandlerLast(set_number);
+        return true;
     }
     matrix Maze::get_way() const noexcept { 
         return way;

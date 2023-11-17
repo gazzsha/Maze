@@ -23,12 +23,12 @@ int main() {
 // s21::Controller controller(std::make_unique(model));
 
  controller.GenerateMaze(10,10);
-  controller.SaveToFileMaze("new maze");
-  controller.SolutionWave(std::make_pair<int,int>(1,2),std::make_pair<int,int>(3,4));
-  controller.GenerateMaze(7,7);
-   controller.SaveToFileMaze("new maze");
-  controller.SolutionWave(std::make_pair<int,int>(1,2),std::make_pair<int,int>(3,4));
-  controller.SaveToFileCave("new int");
+  controller.SaveToFileMaze(".MazeTest/maze_10_10");
+  // controller.SolutionWave(std::make_pair<int,int>(1,2),std::make_pair<int,int>(3,4));
+  // controller.GenerateMaze(7,7);
+  //  controller.SaveToFileMaze("new maze");
+  // controller.SolutionWave(std::make_pair<int,int>(1,2),std::make_pair<int,int>(3,4));
+  // controller.SaveToFileCave("new int");
 
 
 

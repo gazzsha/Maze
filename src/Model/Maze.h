@@ -27,16 +27,14 @@ enum class Direction {
         Maze(Maze&&) noexcept = default;
         Maze& operator=(Maze&&) noexcept = delete;
         void set_parameters(const std::size_t&,const std::size_t&);
-        void GenerateMaze();
-        // Принимать x = 2, y = 1 ==> В человеческом ввиде 3,2. X -> Y down
-        void WaveAlgorithm(const std::pair<const std::size_t,const std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
-        void SolutionWave(const std::pair<std::size_t,std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
+        bool GenerateMaze();
         matrix get_way() const noexcept;
         std::vector<std::pair<size_t,size_t>> get_path() const noexcept;
         friend std::ostream& operator<<(std::ostream&,const Maze&);
         bool IsGoodMaze() const;
-        std::pair<matrix,matrix> get_data() const;
+        std::pair<std::pair<matrix,matrix>,std::vector<std::pair<size_t,size_t>>> get_data() const;
         pair get_paramets() const;
+        bool SolvingMaze(const std::pair<const std::size_t,const std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
         private:
         pair parameters;
         matrix value_vertical;
@@ -56,6 +54,10 @@ enum class Direction {
         bool CheckEnd(const matrix&,const std::pair<const std::size_t,const std::size_t>&) const;
         bool CheckStepByDirection(enum Direction,const std::pair<const int&,const int&>) const;
         void clear();
+        bool CheckSizePoint(const pair&,const pair&);
+         // Принимать x = 2, y = 1 ==> В человеческом ввиде 3,2. X -> Y down
+        void WaveAlgorithm(const std::pair<const std::size_t,const std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
+        void SolutionWave(const std::pair<std::size_t,std::size_t>&,const std::pair<const std::size_t,const std::size_t>&);
     };
 
 
