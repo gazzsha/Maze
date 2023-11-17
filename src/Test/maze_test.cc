@@ -77,7 +77,7 @@ Controller controller(std::make_unique<typename s21::Model>());
 EXPECT_FALSE(controller.GenerateMaze(51,50));
 EXPECT_FALSE(controller.SaveToFileMaze("./Temp/test_maze_51_50.txt"));
 }
-TEST(WaveSolution, test_solution_1) {
+TEST(MazeSolution, test_solution_1) {
 Controller controller(std::make_unique<typename s21::Model>());
 EXPECT_TRUE(controller.ReadFromFileMaze("./MazeExample/maze_4_4.txt"));
 EXPECT_TRUE(CheckSizeMaze<>(controller,4u,4u));
@@ -95,7 +95,7 @@ std::vector<std::pair<std::size_t,std::size_t>> true_path {
 CheckPath(controller.get_data_maze().second,true_path);
 }
 
-TEST(WaveSolution, test_solution_2) {
+TEST(MazeSolution, test_solution_2) {
 Controller controller(std::make_unique<typename s21::Model>());
 EXPECT_TRUE(controller.ReadFromFileMaze("./MazeExample/maze_4_4.txt"));
 EXPECT_TRUE(CheckSizeMaze<>(controller,4u,4u));
@@ -110,7 +110,7 @@ std::vector<std::pair<std::size_t,std::size_t>> true_path {
 CheckPath(controller.get_data_maze().second,true_path);
 }
 
-TEST(WaveSolution, test_solution_3) {
+TEST(MazeSolution, test_solution_3) {
 Controller controller(std::make_unique<typename s21::Model>());
 EXPECT_TRUE(controller.ReadFromFileMaze("./MazeExample/maze_4_4.txt"));
 EXPECT_TRUE(CheckSizeMaze<>(controller,4u,4u));
@@ -118,14 +118,14 @@ EXPECT_TRUE(controller.SolvingMaze(std::make_pair<std::size_t,std::size_t>(0u,0u
 std::vector<std::pair<std::size_t,std::size_t>> true_path {};
 CheckPath(controller.get_data_maze().second,true_path);
 }
-TEST(WaveSolution, test_solition_error) {
+TEST(MazeSolution, test_solition_error) {
 Controller controller(std::make_unique<typename s21::Model>());
 EXPECT_TRUE(controller.ReadFromFileMaze("./MazeExample/maze_4_4.txt"));
 EXPECT_TRUE(CheckSizeMaze<>(controller,4u,4u));
 EXPECT_FALSE(controller.SolvingMaze(std::make_pair<std::size_t,std::size_t>(0u,0u),std::make_pair<std::size_t,std::size_t>(-1u,-1u)));
 }
 
-TEST(WaveSolution, test_solition_error_2) {
+TEST(MazeSolution, test_solition_error_2) {
 Controller controller(std::make_unique<typename s21::Model>());
 EXPECT_TRUE(controller.ReadFromFileMaze("./MazeExample/maze_4_4.txt"));
 EXPECT_TRUE(CheckSizeMaze<>(controller,4u,4u));

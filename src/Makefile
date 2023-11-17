@@ -33,7 +33,7 @@ $(TARGET) : clean build_temp_test
 	./$(TARGET)
 
 
-install: clean | install_qcustom_plot
+install:
 	rm -rf View/MLP/Build_MLP
 	mkdir View/MLP/Build_MLP
 	cd View/MLP/Build_MLP && cmake ../
